@@ -1,0 +1,8 @@
+{
+  "name": "GepetsDev2",
+  "app_id": "746370fe",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
