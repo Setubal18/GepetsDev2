@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title style="text-align: center">
+      <strong>Cadastro</strong>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form (submit)="Validator()"  >
+    <!-- Fazer as devidas validações dos campos -->
+    <ion-item>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input name="nome" required="required" type="text" [(ngModel)]="CadastroForm.nome" ></ion-input>
+      <h6 *ngIf="erroNome">{{Message_nome}}</h6>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label stacked>Data de nascimento</ion-label>
+      <ion-input name="data_nascimento" type="date" [(ngModel)]="CadastroForm.dtnascimento" required="required"></ion-input>
+      <h6 *ngIf="erroDtNascimento">{{Message_nome}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Genêro</ion-label>
+      <ion-select>
+        <ion-option value="f">Feminino</ion-option>
+        <ion-option value="m">Masculino</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Peso</ion-label>
+      <ion-input name="peso" type="number" required="required" [(ngModel)]="CadastroForm.peso"></ion-input>
+      <h6 *ngIf="erroPeso">{{Message_nome}}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Altura</ion-label>
+      <ion-input name="altura" type="number" required="required" [(ngModel)]="CadastroForm.altura"></ion-input>
+      <h6 *ngIf="erroAltura">{{Message_nome}}</h6>
+    </ion-item>
+
+  </form>
+
+  <button ion-button  round color='secondary' full end  (click)="chamadaAvaliacao()">
+    Iniciar Avaliação
+  </button>
+</ion-content>
