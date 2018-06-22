@@ -8,17 +8,15 @@ import {replaceTemplateUrl} from "@ionic/app-scripts/dist/template";
   templateUrl: 'avaliacao.html',
 })
 export class AvaliacaoPage {
-  sexo :any;
+  sexo: any;
+
   constructor(
-              public navCtrl: NavController,
-              public navParams: NavParams
+    public navCtrl: NavController,
+    public navParams: NavParams
   ) {
     this.sexo = this.navParams.get('genero');
   }
-  slides = [];
-
-if(sexo == 'f') {
-  this.slides = [
+  slides = [
     {
       title: "Imagem 1",
       description: "",
@@ -110,10 +108,6 @@ if(sexo == 'f') {
     },
 
   ];
-}
-else{
-  return null;
-}
 
 
 }

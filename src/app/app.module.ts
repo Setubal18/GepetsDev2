@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import {FormsModule} from "@angular/forms";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
+import {ConsultaPage} from "../pages/consulta/consulta";
+import {CadastroPage} from "../pages/cadastro/cadastro";
 
 
 @NgModule({
@@ -23,8 +26,7 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     HomePage,
-
-  ],
+   ],
   providers: [
     StatusBar,
     SplashScreen,

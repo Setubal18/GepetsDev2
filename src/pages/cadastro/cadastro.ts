@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AvaliacaoPage} from "../avaliacao/avaliacao";
-import {FormBuilder,Validators} from "@angular/forms";
+import {FormBuilder,Validators,FormGroup} from "@angular/forms";
 
 /**
  * Generated class for the CadastroPage page.
@@ -17,7 +17,7 @@ import {FormBuilder,Validators} from "@angular/forms";
 })
 export class CadastroPage {
 
-  public CadastroForm: any;
+  public cadastroForm: FormGroup;
   genero = 'f';
   Message_nome= '';
   Message_peso='';
@@ -29,21 +29,21 @@ export class CadastroPage {
   erroAltura = false;
   erroDtNascimento = false;
 
+
   constructor(public navCtrl: NavController,
-  public navParams: NavParams,
   public formBuilder:FormBuilder){
-  this.CadastroForm = this.formBuilder.group({
+
+  this.cadastroForm = this.formBuilder.group({
     nome:["",Validators.required],
-    genero:["",Validators.required],
     peso:["",Validators.required],
     altura:["",Validators.required],
     dtnascimento:["",Validators.required]})}
 
 
   Validator() {
-    let {nome, peso, altura, dtnascimento} = this.CadastroForm.controls;
+    let {nome, peso, altura, dtnascimento} = this.cadastroForm.controls;
 
-    if (!this.CadastroForm.valid) {
+    if (!this.cadastroForm.valid) {
       if (!nome.valid) {
         this.erroNome = true;
         this.Message_nome = 'Campo Nome obrigatorio';
