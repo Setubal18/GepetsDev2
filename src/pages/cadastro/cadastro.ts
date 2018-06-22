@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, Item, NavController, ViewController} from 'ionic-angular';
 import {AvaliacaoPage} from "../avaliacao/avaliacao";
 import {FormBuilder,Validators,FormGroup} from "@angular/forms";
+import { DataProvider } from "../../providers/data/data";
 
 /**
  * Generated class for the CadastroPage page.
@@ -18,7 +19,14 @@ import {FormBuilder,Validators,FormGroup} from "@angular/forms";
 export class CadastroPage {
 
   public cadastroForm: FormGroup;
+  // Recebera os valores do form;
+  nome : string;
   genero = 'f';
+  dtnascimento: string;
+  altura : number;
+  peso : number;
+
+  //Variaveis para validação do form;
   Message_nome= '';
   Message_peso='';
   Message_altura= '';
@@ -31,13 +39,20 @@ export class CadastroPage {
 
 
   constructor(public navCtrl: NavController,
-  public formBuilder:FormBuilder){
+              public formBuilder:FormBuilder,
+              public dataService:DataProvider,
+              public view:ViewController){
 
   this.cadastroForm = this.formBuilder.group({
     nome:["",Validators.required],
     peso:["",Validators.required],
     altura:["",Validators.required],
-    dtnascimento:["",Validators.required]})}
+    dtnascimento:["",Validators.required]})
+
+    this.dataService.getData().then()
+
+
+  }
 
 
   Validator() {
@@ -79,6 +94,19 @@ export class CadastroPage {
 
     }
   }
+  savePaciente(){
+    let pacientes = {
+      nome: this.nome,
+      sexo: this.genero,
+      dtnascimento: this.dtnascimento,
+      peso: this.peso,
+      altura: this.altura
+    };
+    this.view.dismiss(pacientes);
+
+  }
+
+
 
 
   ionViewDidLoad() {

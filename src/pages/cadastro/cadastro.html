@@ -13,35 +13,35 @@
     <ion-list>
       <ion-item>
         <ion-label stacked>Nome:</ion-label>
-        <ion-input formControlName="nome" type="text" placeholder="Nome"></ion-input>
+        <ion-input formControlName="nome" [(ngModel)]="nome" type="text" placeholder="Nome"></ion-input>
       </ion-item>
       <ion-item *ngIf="cadastroForm.get('nome').errors && cadastroForm.get('nome').dirty">
         <p color="danger" ion-text *ngIf="cadastroForm.get('nome').hasError('required')">Campo Obrigatorio</p>
       </ion-item>
       <ion-item>
-        <ion-label stacked>Age:</ion-label>
-        <ion-input formControlName="dtnascimento" type="number" placeholder="Idade"></ion-input>
+        <ion-label stacked>Data de nascimento:</ion-label>
+        <ion-input formControlName="dtnascimento" [(ngModel)]="dtnascimento" type="date" placeholder="Data nascimento"></ion-input>
       </ion-item>
       <ion-item *ngIf="cadastroForm.get('dtnascimento').errors && cadastroForm.get('dtnascimento').dirty">
         <p color="danger" ion-text *ngIf="cadastroForm.get('dtnascimento').hasError('required')">Campo Obrigatorio</p>
       </ion-item>
       <ion-item>
         <ion-label stacked>Peso:</ion-label>
-        <ion-input formControlName="peso" type="number" placeholder="Peso"></ion-input>
+        <ion-input formControlName="peso" [(ngModel)]="peso" type="number" placeholder="Peso"></ion-input>
       </ion-item>
       <ion-item *ngIf="cadastroForm.get('peso').errors && cadastroForm.get('peso').dirty">
         <p color="danger" ion-text *ngIf="cadastroForm.get('peso').hasError('required')">Campo Obrigatorio</p>
       </ion-item>
       <ion-item>
         <ion-label stacked>Altura:</ion-label>
-        <ion-input formControlName="altura" type="number" placeholder="Altura"></ion-input>
+        <ion-input formControlName="altura" [(ngModel)]="altura" type="number" placeholder="Altura"></ion-input>
       </ion-item>
       <ion-item *ngIf="cadastroForm.get('altura').errors && cadastroForm.get('altura').dirty">
         <p color="danger" ion-text *ngIf="cadastroForm.get('altura').hasError('required')">Campo Obrigatorio</p>
       </ion-item>
     </ion-list>
     <div padding>
-      <button ion-button  round color='secondary' type="submit" [disabled]="cadastroForm.invalid" full end  (click)="chamadaAvaliacao()">
+      <button ion-button  round color='secondary' type="submit" [disabled]="cadastroForm.invalid" full end  (click)="savePaciente()">
         Iniciar Avaliação
       </button>
     </div>

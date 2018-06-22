@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
 import {ConsultaPage} from "../pages/consulta/consulta";
 import {CadastroPage} from "../pages/cadastro/cadastro";
+import { DataProvider } from '../providers/data/data';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {CadastroPage} from "../pages/cadastro/cadastro";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}
