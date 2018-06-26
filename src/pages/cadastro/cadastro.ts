@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import {IonicPage, Item, NavController, ViewController} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, ViewController} from 'ionic-angular';
 import {AvaliacaoPage} from "../avaliacao/avaliacao";
-import {FormBuilder,Validators,FormGroup} from "@angular/forms";
-import { DataProvider } from "../../providers/data/data";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 /**
  * Generated class for the CadastroPage page.
@@ -22,7 +21,9 @@ export class CadastroPage {
   // Ira receber os valores do form;
   nome : string;
   genero = 'f';
-  dtnascimento: string;
+  dtnascimento: any;
+  hoje = Date.now();
+  idade = this.hoje - this.dtnascimento;
   altura : number;
   peso : number;
 
@@ -40,7 +41,7 @@ export class CadastroPage {
 
   constructor(public navCtrl: NavController,
               public formBuilder:FormBuilder,
-              public dataService:DataProvider,
+              // public dataService:DataProvider,
               public view:ViewController){
 
   this.cadastroForm = this.formBuilder.group({
@@ -49,7 +50,7 @@ export class CadastroPage {
     altura:["",Validators.required],
     dtnascimento:["",Validators.required]})
 
-    this.dataService.getData().then()
+    // this.dataService.getData().then()
 
 
   }
@@ -99,8 +100,10 @@ export class CadastroPage {
       nome: this.nome,
       sexo: this.genero,
       dtnascimento: this.dtnascimento,
+      idade: this.idade,
       peso: this.peso,
-      altura: this.altura
+      altura: this.altura,
+      image: '../../assets/user.png'
     };
     this.view.dismiss(pacientes);
 

@@ -1,15 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
 import {FormsModule} from "@angular/forms";
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
-import {ConsultaPage} from "../pages/consulta/consulta";
-import {CadastroPage} from "../pages/cadastro/cadastro";
-import { DataProvider } from '../providers/data/data';
+import {MyApp} from './app.component';
+import {HomePage} from '../pages/home/home';
+import {DataProvider} from '../providers/data/data';
 
 
 @NgModule({
@@ -32,6 +29,7 @@ import { DataProvider } from '../providers/data/data';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider,
     DataProvider
   ]
 })
