@@ -19,7 +19,7 @@ import { DataProvider } from "../../providers/data/data";
 export class CadastroPage {
 
   public cadastroForm: FormGroup;
-  // Recebera os valores do form;
+  // Ira receber os valores do form;
   nome : string;
   genero = 'f';
   dtnascimento: string;

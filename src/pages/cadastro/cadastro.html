@@ -20,7 +20,7 @@
       </ion-item>
       <ion-item>
         <ion-label stacked>Data de nascimento:</ion-label>
-        <ion-input formControlName="dtnascimento" [(ngModel)]="dtnascimento" type="date" placeholder="Data nascimento"></ion-input>
+        <ion-input formControlName="dtnascimento" [(ngModel)]="dtnascimento" type="date" placeholder="Data nascimento"></ion-input > <!-- o ngModel e para passar os dados pra .ts-->
       </ion-item>
       <ion-item *ngIf="cadastroForm.get('dtnascimento').errors && cadastroForm.get('dtnascimento').dirty">
         <p color="danger" ion-text *ngIf="cadastroForm.get('dtnascimento').hasError('required')">Campo Obrigatorio</p>
