@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, ViewController} from 'ionic-angular';
-import {AvaliacaoPage} from "../avaliacao/avaliacao";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 /**
@@ -113,10 +112,11 @@ export class CadastroPage {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPage');
+    console.log(this.idade);
   }
   chamadaAvaliacao(){
     this.navCtrl.push('AvaliacaoPage',{genero:this.genero});
+    console.log(this.idade);
 
   }
 

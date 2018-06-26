@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {IonicPage, ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
+import {ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
 import {DetalhePacientePage} from "../detalhe-paciente/detalhe-paciente";
+import {CadastroPage} from "../cadastro/cadastro";
 
 
 /**
@@ -10,7 +11,6 @@ import {DetalhePacientePage} from "../detalhe-paciente/detalhe-paciente";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-consulta',
   templateUrl: 'consulta.html',
@@ -29,7 +29,7 @@ export class ConsultaPage {
   }
 
   addPaciente() {
-    let addPaciente = this.modalCtrl.create(ConsultaPage);
+    let addPaciente = this.modalCtrl.create(CadastroPage);
     addPaciente.onDidDismiss((paciente) => {
 
       if (paciente) {
