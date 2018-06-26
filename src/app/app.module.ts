@@ -29,7 +29,6 @@ import {DataProvider} from '../providers/data/data';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider,
     DataProvider
   ]
 })
