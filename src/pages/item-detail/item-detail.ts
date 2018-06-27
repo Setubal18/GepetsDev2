@@ -7,17 +7,21 @@ import {AvaliacaoPage} from "../avaliacao/avaliacao";
   templateUrl: 'item-detail.html'
 })
 export class ItemDetailPage {
-
+  altura;
   nome;
-  description;
-
+  dtnascimento;
+  genero;
+  peso
   constructor(public navParams: NavParams,public navCtrl : NavController){
 
   }
 
   ionViewDidLoad() {
     this.nome = this.navParams.get('item').nome;
-    this.description = this.navParams.get('item').dtnascimento;
+    this.dtnascimento = this.navParams.get('item').dtnascimento;
+    this.genero = this.navParams.get('item').genero;
+    this.peso = this.navParams.get('item').peso;
+    this.altura= this.navParams.get('item').altura;
   }
   chamadaAvaliacao(){
     this.navCtrl.push(AvaliacaoPage)
