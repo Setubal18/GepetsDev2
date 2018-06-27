@@ -1,113 +1,122 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {replaceTemplateUrl} from "@ionic/app-scripts/dist/template";
+import { Component,ViewChild } from '@angular/core';
+import {  NavController, NavParams } from 'ionic-angular';
 
-@IonicPage()
+/**
+ * Generated class for the AvaliacaoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+
 @Component({
   selector: 'page-avaliacao',
   templateUrl: 'avaliacao.html',
 })
 export class AvaliacaoPage {
-  sexo: any;
-
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams
-  ) {
-    this.sexo = this.navParams.get('genero');
-  }
-  slides = [
+  @ViewChild('slide') slide: any;
+  imgs=[
     {
-      title: "Imagem 1",
-      description: "",
-      image: "assets/imgs/Adult_Mulher1.png",
-      imc: 1
+      id: 1,
+      img: 'assets/imgs/Adult_Mulher1.png"',
+      title: 'Imagem1',
+      imc: '',
     },
     {
-      title: "Imagem 2",
-      description: "",
-      image: "assets/imgs/Adult_Mulher2.png",
-      imc: 2
+      id: 2,
+      img: 'assets/imgs/Adult_Mulher2.png"',
+      title: 'Imagem2',
+      imc: '',
     },
     {
-      title: "Imagem 3",
-      description: "",
-      image: "assets/imgs/Adult_Mulher3.png",
-      imc: 3
+      id: 3,
+      img: 'assets/imgs/Adult_Mulher3.png"',
+      title: 'Imagem3',
+      imc: '',
     },
     {
-      title: "Imagem 4",
-      description: "",
-      image: "assets/imgs/Adult_Mulher4.png",
-      imc: 4
+      id: 4,
+      img: 'assets/imgs/Adult_Mulher4.png"',
+      title: 'Imagem4',
+      imc: '',
     },
     {
-      title: "Imagem 5",
-      description: "",
-      image: "assets/imgs/Adult_Mulher5.png",
-      imc: 5
+      id: 5,
+      img: 'assets/imgs/Adult_Mulher5.png"',
+      title: 'Imagem5',
+      imc: '',
     },
     {
-      title: "Imagem 6",
-      description: "",
-      image: "assets/imgs/Adult_Mulher6.png",
-      imc: 6
+      id: 6,
+      img: 'assets/imgs/Adult_Mulher6.png"',
+      title: 'Imagem6',
+      imc: '',
     },
     {
-      title: "Imagem 7",
-      description: "",
-      image: "assets/imgs/Adult_Mulher7.png",
-      imc: 7
+      id: 7,
+      img: 'assets/imgs/Adult_Mulher7.png"',
+      title: 'Imagem7',
+      imc: '',
+    },
+    {
+      id: 8,
+      img: 'assets/imgs/Adult_Mulher8.png"',
+      title: 'Imagem8',
+      imc: '',
+    },
+    {
+      id: 9,
+      img: 'assets/imgs/Adult_Mulher9.png"',
+      title: 'Imagem9',
+      imc: '',
+    },
+    {
+      id: 10,
+      img: 'assets/imgs/Adult_Mulher10.png"',
+      title: 'Imagem10',
+      imc: '',
+    },
+    {
+      id: 11,
+      img: 'assets/imgs/Adult_Mulher11.png"',
+      title: 'Imagem11',
+      imc: '',
     }, {
-      title: "Imagem 8",
-      description: "",
-      image: "assets/imgs/Adult_Mulher8.png",
-      imc: 8
+      id: 12,
+      img: 'assets/imgs/Adult_Mulher12.png"',
+      title: 'Imagem12',
+      imc: '',
     },
     {
-      title: "Imagem 9",
-      description: "",
-      image: "assets/imgs/Adult_Mulher9.png",
-      imc: 9
+      id: 13,
+      img: 'assets/imgs/Adult_Mulher13.png"',
+      title: 'Imagem13',
+      imc: '',
     },
     {
-      title: "Imagem 10",
-      description: "",
-      image: "assets/imgs/Adult_Mulher10.png",
-      imc: 10
+      id: 14,
+      img: 'assets/imgs/Adult_Mulher14.png"',
+      title: 'Imagem14',
+      imc: '',
     },
     {
-      title: "Imagem 11",
-      description: "",
-      image: "assets/imgs/Adult_Mulher11.png",
-      imc: 11
-    },
-    {
-      title: "Imagem 12",
-      description: "",
-      image: "assets/imgs/Adult_Mulher12.png",
-      imc: 12
-    },
-    {
-      title: "Imagem 13",
-      description: "",
-      image: "assets/imgs/Adult_Mulher13.png",
-      imc: 13
-    },
-    {
-      title: "Imagem 14",
-      description: "",
-      image: "assets/imgs/Adult_Mulher14.png",
-      imc: 14
-    },
-    {
-      title: "Imagem 15",
-      description: "",
-      image: "assets/imgs/Adult_Mulher15.png",
-      imc: 15
-    },
-
+      id: 15,
+      img: 'assets/imgs/Adult_Mulher15.png"',
+      title: 'Imagem15',
+      imc: '',
+    }
   ];
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad AvaliacaoPage');
+  // }
+  slideNext(){
+    this.slide.slideNext();
+  }
 
+  slidePrev(){
+    this.slide.slidePrev();
+  }
 }

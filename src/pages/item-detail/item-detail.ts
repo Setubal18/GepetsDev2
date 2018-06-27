@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController} from 'ionic-angular';
+import {AvaliacaoPage} from "../avaliacao/avaliacao";
 
 @Component({
   selector: 'page-item-detail',
@@ -10,7 +11,7 @@ export class ItemDetailPage {
   nome;
   description;
 
-  constructor(public navParams: NavParams){
+  constructor(public navParams: NavParams,public navCtrl : NavController){
 
   }
 
@@ -18,5 +19,7 @@ export class ItemDetailPage {
     this.nome = this.navParams.get('item').nome;
     this.description = this.navParams.get('item').dtnascimento;
   }
-
+  chamadaAvaliacao(){
+    this.navCtrl.push(AvaliacaoPage)
+  }
 }
