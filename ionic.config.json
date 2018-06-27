@@ -1,8 +1,6 @@
 {
-  "name": "GepetsDev2",
-  "app_id": "746370fe",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "name": "GepetsDev3",
+  "app_id": "",
+  "integrations": {},
+  "type": "ionic-angular"
 }
