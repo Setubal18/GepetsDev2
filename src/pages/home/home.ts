@@ -1,24 +1,58 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
-
-import {CadastroPage} from "../cadastro/cadastro";
+import { Component } from '@angular/core';
+import { ModalController, NavController } from 'ionic-angular';
+import { AddItemPage } from '../add-item/add-item'
+import { ItemDetailPage } from '../item-detail/item-detail';
+import { Data } from '../../providers/data';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-
 export class HomePage {
-  //consultaOk = false;
 
-  constructor(public navCtrl: NavController) {  }
+  public items = [];
 
-  chamadaNovaAvaliacao(){
-    this.navCtrl.push('CadastroPage');
-    return CadastroPage;
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+
+    this.dataService.getData().then((todos) => {
+
+      if(todos){
+        this.items = todos;
+      }
+
+    });
+
   }
-  chamadaConsulta(){
-   this.navCtrl.push('ConsultaPage');
+
+  ionViewDidLoad(){
 
   }
+
+  addItem(){
+
+    let addModal = this.modalCtrl.create(AddItemPage);
+    
+    addModal.onDidDismiss((item) => {
+
+          if(item){
+            this.saveItem(item);
+          }
+
+    });
+
+    addModal.present();
+
+  }
+
+  saveItem(item){
+    this.items.push(item);
+    this.dataService.save(this.items);
+  }
+
+  viewItem(item){
+    this.navCtrl.push(ItemDetailPage, {
+      item: item
+    });
+  }
+
 }

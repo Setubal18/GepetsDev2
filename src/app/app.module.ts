@@ -1,47 +1,32 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule} from '@angular/core';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {StatusBar} from '@ionic-native/status-bar';
-import {FormsModule} from "@angular/forms";
-import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
-import {DataProvider} from '../providers/data/data';
-import {ConsultaPage} from "../pages/consulta/consulta";
-import {CadastroPage} from "../pages/cadastro/cadastro";
-import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
-import {DetalhePacientePage} from "../pages/detalhe-paciente/detalhe-paciente";
-
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicStorageModule } from '@ionic/storage';
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { AddItemPage } from '../pages/add-item/add-item';
+import { ItemDetailPage } from '../pages/item-detail/item-detail';
+import { Data } from '../providers/data';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ConsultaPage,
-    CadastroPage,
-    DetalhePacientePage,
-    AvaliacaoPage
-
+    AddItemPage,
+    ItemDetailPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    FormsModule
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ConsultaPage,
-    CadastroPage,
-    DetalhePacientePage,
-    AvaliacaoPage
-   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
-  ]
+    AddItemPage,
+    ItemDetailPage
+  ],
+  providers: [Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
