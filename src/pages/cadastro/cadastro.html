@@ -26,6 +26,13 @@
         <p color="danger" ion-text *ngIf="cadastroForm.get('dtnascimento').hasError('required')">Campo Obrigatorio</p>
       </ion-item>
       <ion-item>
+        <ion-label>Genero</ion-label>
+        <ion-select [(ngModel)]="genero">
+          <ion-option value="f">Femenino</ion-option>
+          <ion-option value="m">Masculino</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
         <ion-label stacked>Peso:</ion-label>
         <ion-input formControlName="peso" [(ngModel)]="peso" type="number" placeholder="Peso"></ion-input>
       </ion-item>

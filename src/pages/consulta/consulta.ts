@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
 import {DetalhePacientePage} from "../detalhe-paciente/detalhe-paciente";
-import {CadastroPage} from "../cadastro/cadastro";
 
 
 /**
@@ -20,16 +19,17 @@ export class ConsultaPage {
   constructor(public navCtrl: NavController,
               public params: NavParams,
               public modalCtrl: ModalController,
-              public viewCtrl: ViewController) {
+              public viewCtrl: ViewController
+  ) {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConsultaPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad ConsultaPage');
+  // }
 
   addPaciente() {
-    let addPaciente = this.modalCtrl.create(CadastroPage);
+    let addPaciente = this.modalCtrl.create(Paciente);
     addPaciente.onDidDismiss((paciente) => {
 
       if (paciente) {
@@ -51,5 +51,19 @@ export class ConsultaPage {
       paciente: paciente
     });
   }
+}
+
+@Component({
+    selector: 'page-detalhe-paciente',
+    templateUrl: 'detalhe-paciente.html',
+  }
+)
+
+class Paciente {
+
+  constructor(params: NavParams) {
+    console.log('Paciente', params.get('nome'));
+  }
+
 }
 

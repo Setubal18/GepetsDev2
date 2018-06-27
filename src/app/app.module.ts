@@ -7,12 +7,20 @@ import {FormsModule} from "@angular/forms";
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {DataProvider} from '../providers/data/data';
+import {ConsultaPage} from "../pages/consulta/consulta";
+import {CadastroPage} from "../pages/cadastro/cadastro";
+import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
+import {DetalhePacientePage} from "../pages/detalhe-paciente/detalhe-paciente";
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    ConsultaPage,
+    CadastroPage,
+    DetalhePacientePage,
+    AvaliacaoPage
 
   ],
   imports: [
@@ -24,6 +32,10 @@ import {DataProvider} from '../providers/data/data';
   entryComponents: [
     MyApp,
     HomePage,
+    ConsultaPage,
+    CadastroPage,
+    DetalhePacientePage,
+    AvaliacaoPage
    ],
   providers: [
     StatusBar,
