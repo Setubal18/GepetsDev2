@@ -8,6 +8,7 @@ import { AddItemPage } from '../pages/add-item/add-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { Data } from '../providers/data';
 import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
+import {ResultadoPage} from "../pages/resultado/resultado";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
     HomePage,
     AddItemPage,
     ItemDetailPage,
-    AvaliacaoPage
+    AvaliacaoPage,
+    ResultadoPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
     HomePage,
     AddItemPage,
     ItemDetailPage,
-    AvaliacaoPage
+    AvaliacaoPage,
+    ResultadoPage
   ],
   providers: [Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

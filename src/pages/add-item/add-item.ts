@@ -71,7 +71,6 @@ export class AddItemPage {
   }
 
 	saveItem(){
-
 		let newItem = {
 		  nome: this.nome,
 		  genero: this.genero,
@@ -81,7 +80,7 @@ export class AddItemPage {
       idade: this.idade
 		};
 
-    this.nav.push(AvaliacaoPage);
+    this.nav.push(AvaliacaoPage,{paciente:newItem});
 		this.view.dismiss(newItem);
 
 
