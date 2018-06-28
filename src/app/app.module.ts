@@ -7,13 +7,15 @@ import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { Data } from '../providers/data';
+import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddItemPage,
-    ItemDetailPage
+    ItemDetailPage,
+    AvaliacaoPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { Data } from '../providers/data';
     MyApp,
     HomePage,
     AddItemPage,
-    ItemDetailPage
+    ItemDetailPage,
+    AvaliacaoPage
   ],
   providers: [Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

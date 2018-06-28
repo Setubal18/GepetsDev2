@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 import { FormBuilder,FormGroup,Validators } from "@angular/forms";
+import {AvaliacaoPage} from "../avaliacao/avaliacao";
+
 
 @Component({
   selector: 'page-add-item',
@@ -9,7 +11,7 @@ import { FormBuilder,FormGroup,Validators } from "@angular/forms";
 export class AddItemPage {
   public formCadastro:FormGroup;
   nome : string;
-  genero : any;
+  genero : string;
   dtnascimento: any;
   hoje = Date.now();
   idade = this.hoje - this.dtnascimento;
@@ -28,7 +30,8 @@ export class AddItemPage {
       genero:[""],
       peso:["",Validators.required],
       altura:["",Validators.required],
-      dtnascimento:["",Validators.required]})
+      dtnascimento:["",Validators.required]
+    })
 
   }
   Validator() {
@@ -78,7 +81,9 @@ export class AddItemPage {
       idade: this.idade
 		};
 
+    this.nav.push(AvaliacaoPage);
 		this.view.dismiss(newItem);
+
 
 	}
 

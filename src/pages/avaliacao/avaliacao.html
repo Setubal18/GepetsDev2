@@ -1,20 +1,27 @@
+
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title style="text-align: center">
       <strong>Avaliação</strong>
     </ion-title>
   </ion-navbar>
+  <ion-item  >{{pergunta.title}}</ion-item>
+  <!--A linha acima percorre o objeto de pergunta gerado pelo metodo question que e inicado pelo ionViewDidLoad-->
 </ion-header>
 
 <ion-content class="tutorial-page">
 
-  <ion-slides pager>
+  <ion-slides paginationClickable=true
+              initialSlide=0
+              loop=true
+              #slider>
+
     <ion-slide *ngFor="let slide of slides" >
       <ion-toolbar>
         <ion-buttons end>
         </ion-buttons>
       </ion-toolbar>
-      <img [src]="slide.image"  (click)="addSlides(slide)"  class="slide-image"/>
+      <img [src]="slide.image"  (click)="addSlides()" class="slide-image"/>
     </ion-slide>
     <ion-slide>
       <ion-toolbar>
@@ -22,4 +29,6 @@
       <img src="assets/imgs/Adult_Mulher1.png" class="slide-image"/>
     </ion-slide>
   </ion-slides>
+  <div class="swiper-button-next" (click)="slideNext()"></div>
+  <div class="swiper-button-prev" (click)="slidePrev()"></div>
 </ion-content>
