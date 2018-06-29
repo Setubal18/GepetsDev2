@@ -3,6 +3,7 @@ import { ModalController, NavController } from 'ionic-angular';
 import { AddItemPage } from '../add-item/add-item'
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { Data } from '../../providers/data';
+import {ResultadoPage} from "../resultado/resultado";
 
 @Component({
   selector: 'page-home',
@@ -31,7 +32,7 @@ export class HomePage {
   addItem(){
 
     let addModal = this.modalCtrl.create(AddItemPage);
-    
+
     addModal.onDidDismiss((item) => {
 
           if(item){
@@ -53,6 +54,9 @@ export class HomePage {
     this.navCtrl.push(ItemDetailPage, {
       item: item
     });
+  }
+  chamadaResultado(){
+    this.navCtrl.push(ResultadoPage);
   }
 
 }

@@ -28,9 +28,9 @@
       </ion-item>
       <ion-item>
         <ion-label>Genero</ion-label>
-        <ion-select>
-          <ion-option value="f">Femenino</ion-option>
-          <ion-option value="m">Masculino</ion-option>
+        <ion-select formControlName="genero" [(ngModel)]="genero">
+          <ion-option value="femenino">Femenino</ion-option>
+          <ion-option value="masculino">Masculino</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -50,7 +50,7 @@
     </ion-list>
     <div padding>
 
-	<button  ion-button color="secondary"  type="submit" (click)="saveItem()" [disabled]="formCadastro.invalid">Iniciar avaliação</button>
+	<button  ion-button color="secondary"  type="submit" (click)="saveItem()" [disabled]="formCadastro.invalid" full>Iniciar avaliação</button>
     </div>
   </form>
 </ion-content>
