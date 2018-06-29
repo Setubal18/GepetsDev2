@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+  	<ion-title style="text-align: center">
+  	  Cadastro
+  	</ion-title>
+    	<ion-buttons end>
+    		<button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    	</ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formCadastro" (ngSubmit)="Validator()" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Nome:</ion-label>
+        <ion-input formControlName="nome" [(ngModel)]="nome" type="text" placeholder="Nome"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formCadastro.get('nome').errors && formCadastro.get('nome').dirty">
+        <p color="danger" ion-text *ngIf="formCadastro.get('nome').hasError('required')">Campo Obrigatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Data de nascimento:</ion-label>
+        <ion-input formControlName="dtnascimento" [(ngModel)]="dtnascimento" type="date" placeholder="Data nascimento"></ion-input > <!-- o ngModel e para passar os dados pra .ts-->
+      </ion-item>
+      <ion-item *ngIf="formCadastro.get('dtnascimento').errors && formCadastro.get('dtnascimento').dirty">
+        <p color="danger" ion-text *ngIf="formCadastro.get('dtnascimento').hasError('required')">Campo Obrigatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Genero</ion-label>
+        <ion-select formControlName="genero" [(ngModel)]="genero">
+          <ion-option value="femenino">Femenino</ion-option>
+          <ion-option value="masculino">Masculino</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Peso:</ion-label>
+        <ion-input formControlName="peso" [(ngModel)]="peso" type="number" placeholder="Peso"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formCadastro.get('peso').errors && formCadastro.get('peso').dirty">
+        <p color="danger" ion-text *ngIf="formCadastro.get('peso').hasError('required')">Campo Obrigatorio</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Altura:</ion-label>
+        <ion-input formControlName="altura" [(ngModel)]="altura" type="number" placeholder="Altura"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formCadastro.get('altura').errors && formCadastro.get('altura').dirty">
+        <p color="danger" ion-text *ngIf="formCadastro.get('altura').hasError('required')">Campo Obrigatorio</p>
+      </ion-item>
+    </ion-list>
+    <div padding>
+
+	<button  ion-button color="secondary"  type="submit" (click)="saveItem()" [disabled]="formCadastro.invalid" full>Iniciar avaliação</button>
+    </div>
+  </form>
+</ion-content>
