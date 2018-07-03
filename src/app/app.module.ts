@@ -11,10 +11,12 @@ import { Data } from '../providers/data';
 import {AvaliacaoPage} from "../pages/avaliacao/avaliacao";
 import {ResultadoPage} from "../pages/resultado/resultado";
 import {Avaliacao2Page} from "../pages/avaliacao2/avaliacao2";
+import {MainPage} from "../pages/main/main";
 
 @NgModule({
   declarations: [
     MyApp,
+    MainPage,
     HomePage,
     AddItemPage,
     ItemDetailPage,
@@ -31,6 +33,7 @@ import {Avaliacao2Page} from "../pages/avaliacao2/avaliacao2";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    MainPage,
     HomePage,
     AddItemPage,
     ItemDetailPage,

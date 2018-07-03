@@ -424,11 +424,11 @@ export class AvaliacaoPage {
   }
 
   ionViewDidLoad() {
-    console.log(this.genero);
-    console.log(this.idade);
-    console.log(this.peso);
-    console.log(this.altura);
-    console.log(this.imcReal);
+    console.log('genero:' +' ' + this.genero);
+    console.log('idade:' + ' ' + this.idade);
+    console.log('peso:' + ' ' + this.peso);
+    console.log('altura:' + ' ' + this.altura);
+    console.log('imc real:' + ' ' + this.imcReal);
     }
 
 showSlides() {
