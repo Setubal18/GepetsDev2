@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
-import {Avaliacao2Page} from "../avaliacao2/avaliacao2";
+
 
 
 
@@ -15,11 +15,12 @@ import {Avaliacao2Page} from "../avaliacao2/avaliacao2";
 
 @Component({
   selector: 'page-avaliacao',
-  templateUrl: 'avaliacao.html',
+  templateUrl: 'avaliacao2.html',
 })
-export class AvaliacaoPage {
+export class Avaliacao2Page {
 
 //Arrays de pergunta  e a base de imagem
+  avaliacao1 = this.navParams.get('avaliacao');
   selecionado = [];
   imcAtual : any =[];
 
@@ -35,11 +36,11 @@ export class AvaliacaoPage {
 
 // Variaveis com operações matematicas
   idade = this.dataAtual - this.dataNascimento;
-  imcReal= this.peso/( this.altura*this.altura);
+  imcReal= this.navParams.get('imcReal');
 
 
 
-@ViewChild('slider') slider: any;
+  @ViewChild('slider') slider: any;
   slides = [];
   adultF = [
     {
@@ -149,8 +150,7 @@ export class AvaliacaoPage {
 
   ];
 
-  adultM =[
-    {
+  adultM =[ {
     title: "Imagem 16",
     description: "",
     id: 1,
@@ -420,7 +420,7 @@ export class AvaliacaoPage {
               public navParams: NavParams) {
 
 
-              this.showSlides();
+    this.showSlides();
   }
 
   ionViewDidLoad() {
@@ -429,27 +429,30 @@ export class AvaliacaoPage {
     console.log(this.peso);
     console.log(this.altura);
     console.log(this.imcReal);
-    }
+    this.selecionado.push(this.avaliacao1);
+    this.imcAtual.push(this.navParams.get('imcAtual'));
+    console.log(this.selecionado)
+  }
 
-showSlides() {
-  if (this.genero == 'masculino') {
-    if (this.idade > 7) {
-      this.slides = this.kidM
+  showSlides() {
+    if (this.genero == 'masculino') {
+      if (this.idade > 7) {
+        this.slides = this.kidM
+      }
+      if (this.idade >= 13) {
+        this.slides = this.adultM;
+      }
     }
-    if (this.idade >= 13) {
-      this.slides = this.adultM;
+    else {
+      if (this.idade < 7) {
+        this.slides = this.kidF
+      }
+      if (this.idade >= 13) {
+        this.slides = this.adultF;
+      }
+
     }
   }
-  else {
-    if (this.idade < 7) {
-      this.slides = this.kidF
-    }
-    if (this.idade >= 13) {
-      this.slides = this.adultF;
-    }
-
-  }
-}
   slideNext(){
     this.slider.slideNext();
   }
@@ -462,23 +465,19 @@ showSlides() {
   addSlides(slide) { //Método para adiconar o slide a lista de selecionado
     if (this.selecionado.indexOf(slide) === -1) {
       this.selecionado.push(slide.id,slide.imc);
-      // this.selecionado.push(slide.id);
+      this.selecionado.push(slide.id);
       console.log('selecionado');
       console.log(this.selecionado);
 
       if(this.selecionado.length === 0){
-          this.imcAtual = this.selecionado.push(slide.imc);
+        this.imcAtual = this.selecionado.push(slide.imc);
       }
     }
-    this.callAv2()
+    this.callAv3()
   }
 
-    callAv2(){
-        this.navCtrl.push(Avaliacao2Page,{
-          avaliacao:this.selecionado,
-          paciente:this.navParams.get('paciente'),
-          imcReal:this.imcReal,
-          imcAtual:this.imcAtual});
-      }
+  callAv3(){
+    // this.navCtrl.push(A,{avaliacao:this.selecionado});
+  }
 
 }
