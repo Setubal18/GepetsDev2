@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="secondary">
+  <ion-navbar color="secondary" style="text-align: center">
     <ion-title>
       {{nome}}
     </ion-title>
@@ -7,9 +7,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      {{description}}
-    </ion-card-content>
-  </ion-card>
+<ion-list>
+  <ion-item >
+    Data de nascimento: {{dtnascimento}}
+  </ion-item>
+  <ion-item>
+    Genero: {{genero}}
+  </ion-item>
+  <ion-item>
+    Peso: {{peso}}
+  </ion-item>
+  <ion-item>
+    Altura: {{altura}}
+  </ion-item>
+</ion-list>
+  <button ion-button icon-only (click)="chamadaAvaliacao()" full>Iniciar Avaliação</button>
 </ion-content>
