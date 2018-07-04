@@ -24,7 +24,9 @@ export class AddItemPage {
   erroAltura = false;
   erroDtNascimento = false;
 
-	constructor(public nav: NavController, public view: ViewController,public formBuilder:FormBuilder) {
+	constructor(public nav: NavController,
+              public view: ViewController,
+              public formBuilder:FormBuilder) {
     this.formCadastro = this.formBuilder.group({
       nome:["",Validators.required],
       genero:[""],

@@ -32,7 +32,7 @@ export class ResultadoPage {
       valor: 3
     },
     {
-      title: "IMC Ideal para mesmo sexo::",
+      title: "IMC Ideal para mesmo sexo:",
       valor: 4
     },
     {
@@ -78,7 +78,7 @@ export class ResultadoPage {
       ]
     });
 
-    // Dummy implementation for Desktop download purpose
+    //implementação para desktop;
     var blob = new Blob([csv]); //Pensar em implemetação para mobile
     var a = window.document.createElement("a");
     a.href = window.URL.createObjectURL(blob);
@@ -87,13 +87,6 @@ export class ResultadoPage {
     a.click();
     document.body.removeChild(a);
   }
-
-
-
-  trackByFn(index: any, data: any) {
-    return index;
-  }
-
   actions() {
     const actionSheet = this.action.create({
       buttons: [
@@ -105,7 +98,7 @@ export class ResultadoPage {
           }
         },
         {
-          text: 'Retornar a o menu Princapal',
+          text: 'Retornar a o menu Principal',
           handler: () => {
             this.navCtrl.push(MainPage);
           }

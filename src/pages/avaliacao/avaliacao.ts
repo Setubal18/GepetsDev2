@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import {NavController, NavParams,ModalController } from 'ionic-angular';
+import {NavController, NavParams,ModalController,AlertController } from 'ionic-angular';
 import {Avaliacao2Page} from "../avaliacao2/avaliacao2";
 
 
@@ -419,13 +419,16 @@ export class AvaliacaoPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public modalCrtl : ModalController) {
+              public modalCrtl : ModalController,
+              private alert : AlertController) {
 
-
+    this.instructions();
     this.showSlides();
+
   }
 
   ionViewDidLoad() {
+
     console.log('genero:' +' ' + this.genero);
     console.log('idade:' + ' ' + this.idade);
     console.log('peso:' + ' ' + this.peso);
@@ -483,6 +486,19 @@ export class AvaliacaoPage {
 
     av2.present();
 
+  }
+  instructions(){
+    let instrucao = this.alert.create({
+      title:'teste',
+      message:'teste alert',
+      buttons:[{
+        text:'ok',
+        handler:()=>{
+          console.log('ok');
+        }
+      }]
+    })
+    instrucao.present();
   }
 
 }
