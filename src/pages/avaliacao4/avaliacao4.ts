@@ -479,7 +479,10 @@ export class Avaliacao4Page {
   }
 
  pushResult(){
-   let result = this.modalCrtl.create(ResultadoPage);
+   let result = this.modalCrtl.create(ResultadoPage,{avaliacao3:this.selecionado,
+     paciente:this.navParams.get('paciente'),
+     imcReal:this.imcReal,
+     imcAtual:this.imcAtual});
    result.present();
   }
 

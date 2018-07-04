@@ -18,14 +18,14 @@ import {MainPage} from "../main/main";
   templateUrl: 'resultado.html',
 })
 export class ResultadoPage {
-  csvData: any[] = [
+  csvData = [
     {
       title: "IMC Real:",
-      valor: 1
+      valor: this.navParams.get('imcReal')
     },
     {
       title: "IMC Atual:",
-      valor: 2
+      valor: this.navParams.get('imcAtual')
     },
     {
       title: "IMC Desejado",
@@ -66,8 +66,16 @@ export class ResultadoPage {
 
   downloadCSV() {
     let csv = papa.unparse({
-      fields: this.headerRow,
-      data: this.csvData
+      fields: ['Tipo','Resultado'],
+      data: [
+        ["IMC Real:",this.navParams.get('imcReal')],
+        ["IMC Atual:",this.navParams.get('imcAtual')],
+        ["IMC Desejado", null], //null para testar
+        ["IMC Ideal para mesmo sexo::",null],
+        ["IMC Ideal para sexo oposto:",null],
+        ["Grau de percepção corporal:",null],
+        ["Grau de satisfação ou insatisfação corporal:",null]
+      ]
     });
 
     // Dummy implementation for Desktop download purpose
@@ -82,7 +90,7 @@ export class ResultadoPage {
 
 
 
-  trackByFn(index: any, item: any) {
+  trackByFn(index: any, data: any) {
     return index;
   }
 

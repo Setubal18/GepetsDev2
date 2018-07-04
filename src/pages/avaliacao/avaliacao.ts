@@ -35,7 +35,8 @@ export class AvaliacaoPage {
 
 // Variaveis com operações matematicas
   idade = this.dataAtual - this.dataNascimento;
-  imcReal= this.peso/( this.altura*this.altura);
+  imc= this.peso/( this.altura*this.altura);
+  imcReal = parseFloat(this.imc.toFixed(2));
 
 
 
@@ -467,9 +468,9 @@ export class AvaliacaoPage {
       console.log('selecionado');
       console.log(this.selecionado);
 
-      if(this.selecionado.length === 0){
-        this.imcAtual = this.selecionado.push(slide.imc);
-      }
+      this.imcAtual.push(slide.imc);
+      console.log('imc Atual'+' '+this.imcAtual);
+
     }
     this.callAv2()
   }
