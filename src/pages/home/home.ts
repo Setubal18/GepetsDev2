@@ -79,4 +79,7 @@ export class HomePage { //Classe principal;
   downloadAll(){
     this.downloadall=true;
   }
+  canceldownloadAll(){
+    this.downloadall=false;
+  }
 }
