@@ -20,6 +20,7 @@ import {MainPage} from "../main/main";
 export class ResultadoPage {
 
   item:any;
+  paciente = this.navParams.get('paciente').avaliacao;
 
   csvData = [
     {
@@ -72,9 +73,7 @@ export class ResultadoPage {
     });
   }
 
-  saveCSVonItem(){
-    this.data.save(this.item);
-  }
+
   downloadCSV() {
     let csv = papa.unparse({
       fields: ['Tipo','Resultado'],
@@ -112,7 +111,7 @@ export class ResultadoPage {
           text: 'Retornar a o menu Principal',
           handler: () => {
             this.navCtrl.push(MainPage);
-            this.saveCSVonItem();
+            this.data.save(this.paciente.push(this.csvData));
             console.log('salvo')
           }
         },

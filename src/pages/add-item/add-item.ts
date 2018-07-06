@@ -18,6 +18,8 @@ export class AddItemPage {
   altura : number;
   peso : number;
 
+
+
   erroNome = false;
   erroGenero = false;
   erroPeso = false;
@@ -80,8 +82,7 @@ export class AddItemPage {
       altura: this.altura,
       peso: this.peso,
       idade: this.idade,
-      avaliações:[]
-
+      avaliacoes : []
 		};
 
     this.nav.push(AvaliacaoPage,{paciente:newItem});

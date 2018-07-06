@@ -11,7 +11,9 @@ export class ItemDetailPage {
   nome;
   dtnascimento;
   genero;
-  peso
+  peso;
+  avaliacao;
+
   constructor(public navParams: NavParams,public navCtrl : NavController){
 
   }
@@ -22,6 +24,10 @@ export class ItemDetailPage {
     this.genero = this.navParams.get('item').genero;
     this.peso = this.navParams.get('item').peso;
     this.altura= this.navParams.get('item').altura;
+    this.avaliacao = this.navParams.get('item').avaliacoes;
+    // this.qtdAvaliacoes = this.avaliacao.length;
+
+    console.log(this.avaliacao);
   }
   chamadaAvaliacao(){
     this.navCtrl.push(AvaliacaoPage,{paciente : this.navParams.get('item')});

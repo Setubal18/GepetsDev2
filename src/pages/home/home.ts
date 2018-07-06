@@ -21,6 +21,8 @@ export class HomePage { //Classe principal;
 
   qtdPacientes = false;
 
+  downloadall= false;
+
   constructor(public navCtrl: NavController, //Instanciação do controller de navegação;
               public modalCtrl: ModalController, //Instanciação do controller de Modais;
               public dataService: Data) { //Instanciação do Provider;
@@ -74,5 +76,7 @@ export class HomePage { //Classe principal;
   // chamadaResultado(){
   //   this.navCtrl.push(ResultadoPage);
   // }
-
+  downloadAll(){
+    this.downloadall=true;
+  }
 }
