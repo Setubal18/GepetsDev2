@@ -4,9 +4,10 @@ import { ModalController, NavController } from 'ionic-angular';
 //Imports das paginas utilizadas;
 import { AddItemPage } from '../add-item/add-item'
 import { ItemDetailPage } from '../item-detail/item-detail';
-import {ResultadoPage} from "../resultado/resultado";
+// import {ResultadoPage} from "../resultado/resultado";
 //Import do Providers utilizado no app;
 import { Data } from '../../providers/data';
+
 
 
 //Componentes da pagina;
@@ -18,6 +19,8 @@ export class HomePage { //Classe principal;
 
   public items = []; //Array de Pacientes ;
 
+  qtdPacientes = false;
+
   constructor(public navCtrl: NavController, //Instanciação do controller de navegação;
               public modalCtrl: ModalController, //Instanciação do controller de Modais;
               public dataService: Data) { //Instanciação do Provider;
@@ -26,11 +29,20 @@ export class HomePage { //Classe principal;
       if(todos){
         this.items = todos; //Coloca os itens armazenados no array de Pacientes;
       }
-
+      else { //Se não houver pacientes ele retorna;
+        this.qtdPacientes = true;
+      }
     });
 
   }
 
+  ionViewDidLoad() {
+
+    console.log(this.items.length);
+    console.log(this.items);
+
+
+  }
   addItem(){ //Metodo que adiciona pagientes ao modal de Paciente;
 
     let addModal = this.modalCtrl.create(AddItemPage); //Cria a Pagina AddItem como um modal;
@@ -45,6 +57,8 @@ export class HomePage { //Classe principal;
 
     addModal.present();
 
+    this.qtdPacientes = false;
+
   }
 
   saveItem(item){
@@ -57,8 +71,8 @@ export class HomePage { //Classe principal;
       item: item
     });
   }
-  chamadaResultado(){
-    this.navCtrl.push(ResultadoPage);
-  }
+  // chamadaResultado(){
+  //   this.navCtrl.push(ResultadoPage);
+  // }
 
 }

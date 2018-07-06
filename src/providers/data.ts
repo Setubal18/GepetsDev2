@@ -9,11 +9,15 @@ export class Data {
   }
 
   getData() {
-    return this.storage.get('todos');  
+    return this.storage.get('todos');
   }
 
   save(data){
     this.storage.set('todos', data);
   }
-  
+
+  getItem(){
+    return this.storage.get('item');
+  }
+
 }

@@ -10,8 +10,9 @@
 </ion-header>
 
 <ion-content>
+  <ion-item *ngIf="qtdPacientes" style="text-align: center" class="alert-message" >Não ha pacientes cadastrados</ion-item>
   <ion-list>
     <ion-item *ngFor="let item of items" (click)="viewItem(item)"><strong>{{item.nome}}</strong></ion-item>
   </ion-list>
-  <button ion-button full (click)="chamadaResultado()">teste Resultado</button>
+  <!--<button ion-button full (click)="chamadaResultado()">teste Resultado</button>-->
 </ion-content>

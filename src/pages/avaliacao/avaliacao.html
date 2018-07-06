@@ -20,7 +20,9 @@
         <ion-buttons end >
         </ion-buttons>
       </ion-toolbar>
-      <img [src]="slide.image"  (click)="addSlides(slide)" class="slide-image"/>
+      <div animates #animation="animates" >
+      <img [src]="slide.image"  (click)="addSlides(slide)" (click)="animation.start({type: 'zoomOutUp', duration: '20000'})" class="slide-image"/>
+      </div>
     </ion-slide>
     <ion-slide>
       <ion-toolbar>
@@ -28,7 +30,8 @@
       <img class="slide-image"/>
     </ion-slide>
   </ion-slides>
-  <div class="swiper-button-next" (click)="slideNext()"></div>
-  <div class="swiper-button-prev" (click)="slidePrev()"></div>
+
+  <div class="swiper-button-next"  (click)="slideNext()"></div>
+  <div class="swiper-button-prev" *ngIf="naoprimeiro" (click)="slidePrev()"></div>
 
 </ion-content>

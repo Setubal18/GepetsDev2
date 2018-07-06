@@ -79,7 +79,9 @@ export class AddItemPage {
       dtnascimento: this.dtnascimento,
       altura: this.altura,
       peso: this.peso,
-      idade: this.idade
+      idade: this.idade,
+      avaliações:[]
+
 		};
 
     this.nav.push(AvaliacaoPage,{paciente:newItem});

@@ -18,6 +18,9 @@ import {MainPage} from "../main/main";
   templateUrl: 'resultado.html',
 })
 export class ResultadoPage {
+
+  item:any;
+
   csvData = [
     {
       title: "IMC Real:",
@@ -62,8 +65,16 @@ export class ResultadoPage {
               public data : Data,
               private action : ActionSheetController) {
 
+              this.data.getItem().then((item)=>{
+                if(item){
+                  this.item = item;
+                }
+    });
   }
 
+  saveCSVonItem(){
+    this.data.save(this.item);
+  }
   downloadCSV() {
     let csv = papa.unparse({
       fields: ['Tipo','Resultado'],
@@ -101,6 +112,8 @@ export class ResultadoPage {
           text: 'Retornar a o menu Principal',
           handler: () => {
             this.navCtrl.push(MainPage);
+            this.saveCSVonItem();
+            console.log('salvo')
           }
         },
         {

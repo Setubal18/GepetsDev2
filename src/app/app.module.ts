@@ -3,6 +3,7 @@ import { HttpModule } from "@angular/http";
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { AnimationService, AnimatesDirective } from 'css-animator';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item/add-item';
@@ -16,6 +17,7 @@ import {SobrePage} from "../pages/sobre/sobre";
 import {Avaliacao3Page} from "../pages/avaliacao3/avaliacao3";
 import {Avaliacao4Page} from "../pages/avaliacao4/avaliacao4";
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +30,8 @@ import {Avaliacao4Page} from "../pages/avaliacao4/avaliacao4";
     Avaliacao2Page,
     Avaliacao3Page,
     Avaliacao4Page,
-    ResultadoPage
+    ResultadoPage,
+    AnimatesDirective
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,10 @@ import {Avaliacao4Page} from "../pages/avaliacao4/avaliacao4";
     ResultadoPage
 
   ],
-  providers: [Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Data,{provide: ErrorHandler, useClass: IonicErrorHandler},AnimationService]
 })
 export class AppModule {}
+
+
+
+

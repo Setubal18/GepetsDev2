@@ -5,6 +5,7 @@ import {Avaliacao2Page} from "../avaliacao2/avaliacao2";
 
 
 
+
 /**
  * Generated class for the AvaliacaoPage page.
  *
@@ -38,7 +39,7 @@ export class AvaliacaoPage {
   imc= this.peso/( this.altura*this.altura);
   imcReal = parseFloat(this.imc.toFixed(2));
 
-
+  naoprimeiro:boolean;
 
   @ViewChild('slider') slider: any;
   slides = [];
@@ -423,6 +424,9 @@ export class AvaliacaoPage {
               private alert : AlertController) {
 
     this.instructions();
+
+    this.naoprimeiro;
+
     this.showSlides();
 
   }
@@ -457,10 +461,19 @@ export class AvaliacaoPage {
   }
   slideNext(){
     this.slider.slideNext();
+    if(this.slider.valueOf().isEnd()) {
+      this.slidePrev();
+          }
+          this.naoprimeiro = true
   }
 
   slidePrev(){
     this.slider.slidePrev();
+    if(this.slider.valueOf().isBeginning()) {
+      this.naoprimeiro = false;    }
+
+
+
   }
 
 
@@ -469,7 +482,9 @@ export class AvaliacaoPage {
       this.selecionado.push(slide.id,slide.imc);
       // this.selecionado.push(slide.id);
       console.log('selecionado');
+      console.log('tamanha array'+' '+this.selecionado.length);
       console.log(this.selecionado);
+      console.log('tamanha array'+' '+this.selecionado.length);
 
       this.imcAtual.push(slide.imc);
       console.log('imc Atual'+' '+this.imcAtual);
@@ -487,17 +502,18 @@ export class AvaliacaoPage {
     av2.present();
 
   }
+
   instructions(){
     let instrucao = this.alert.create({
-      title:'teste',
-      message:'teste alert',
+      title:'Tutorial',
+      subTitle:'Breve tutorial com uma explicação do funcionamento da avaliação',
       buttons:[{
         text:'ok',
         handler:()=>{
           console.log('ok');
         }
       }]
-    })
+    });
     instrucao.present();
   }
 

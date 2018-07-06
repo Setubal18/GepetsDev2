@@ -2,7 +2,7 @@
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title style="text-align: center">
-      <strong >Qual figura representa <br> o ideal <br> para o sexo oposto?</strong>
+      <strong >Qual figura representa <br> o ideal para o sexo oposto?</strong>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -19,7 +19,9 @@
         <ion-buttons end >
         </ion-buttons>
       </ion-toolbar>
-      <img [src]="slide.image"  (click)="addSlides(slide)" class="slide-image"/>
+      <div animates #animation="animates" text-center>
+        <img [src]="slide.image"  (click)="addSlides(slide)" (click)="animation.start({type: 'rubberBand', duration: '3000'})" class="slide-image"/>
+      </div>
     </ion-slide>
     <ion-slide>
       <ion-toolbar>

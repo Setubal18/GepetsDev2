@@ -439,18 +439,18 @@ export class Avaliacao4Page {
   showSlides() {
     if (this.genero == 'masculino') {
       if (this.idade > 7) {
-        this.slides = this.kidM
-      }
-      if (this.idade >= 13) {
-        this.slides = this.adultM;
-      }
-    }
-    else {
-      if (this.idade < 7) {
         this.slides = this.kidF
       }
       if (this.idade >= 13) {
         this.slides = this.adultF;
+      }
+    }
+    else {
+      if (this.idade < 7) {
+        this.slides = this.kidM
+      }
+      if (this.idade >= 13) {
+        this.slides = this.adultM;
       }
 
     }

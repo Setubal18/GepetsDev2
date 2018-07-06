@@ -39,7 +39,7 @@ export class Avaliacao2Page {
   idade = this.dataAtual - this.dataNascimento;
   imcReal= this.navParams.get('imcReal');
 
-
+  naoprimeiro:boolean;
 
   @ViewChild('slider') slider: any;
   slides = [];
@@ -423,6 +423,7 @@ export class Avaliacao2Page {
 
 
     this.showSlides();
+    this.naoprimeiro;
   }
 
   ionViewDidLoad() {
@@ -457,10 +458,19 @@ export class Avaliacao2Page {
   }
   slideNext(){
     this.slider.slideNext();
+    if(this.slider.valueOf().isEnd()) {
+      this.slidePrev();
+    }
+    this.naoprimeiro = true
   }
 
   slidePrev(){
     this.slider.slidePrev();
+    if(this.slider.valueOf().isBeginning()) {
+      this.naoprimeiro = false;    }
+
+
+
   }
 
 
