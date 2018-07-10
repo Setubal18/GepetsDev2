@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="secondary" >
+    <ion-title style="text-align: center">
+      CSV Data
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <table border="1" class="data-table">
+      <tr>
+        <td *ngFor="let header of headerRow" text-center><b>{{ header.title }}</b></td>
+      </tr>
+      <tr *ngFor="let row of csvData">
+        <td>{{row.title}}</td>
+        <td>{{row.valor}}</td>
+    </table>
+  </ion-card>
+  <button ion-button (click)="actions()" color="secondary" class="action-sheet-button">Ações</button>
+</ion-content>

@@ -1,6 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
-import {NavController, NavParams,ModalController,AlertController } from 'ionic-angular';
-import {Avaliacao2Page} from "../avaliacao2/avaliacao2";
+import {NavController, NavParams,ModalController } from 'ionic-angular';
+import {Avaliacao4Page} from "../avaliacao4/avaliacao4";
 
 
 
@@ -15,12 +15,13 @@ import {Avaliacao2Page} from "../avaliacao2/avaliacao2";
 
 
 @Component({
-  selector: 'page-avaliacao',
-  templateUrl: 'avaliacao.html',
+  selector: 'page-avaliacao3',
+  templateUrl: 'avaliacao3.html',
 })
-export class AvaliacaoPage {
+export class Avaliacao3Page {
 
 //Arrays de pergunta  e a base de imagem
+  avaliacao2 = this.navParams.get('avaliacao2');
   selecionado = [];
   imcAtual : any =[];
 
@@ -36,8 +37,9 @@ export class AvaliacaoPage {
 
 // Variaveis com operações matematicas
   idade = this.dataAtual - this.dataNascimento;
-  imc= this.peso/( this.altura*this.altura);
-  imcReal = parseFloat(this.imc.toFixed(2));
+  imcReal= this.navParams.get('imcReal');
+  imcDesejado = this.navParams.get('imcDesejado');
+  imcIdeal;
 
   naoprimeiro:boolean;
 
@@ -151,14 +153,13 @@ export class AvaliacaoPage {
 
   ];
 
-  adultM =[
-    {
-      title: "Imagem 16",
-      description: "",
-      id: 1,
-      imc:12.5,
-      image: "assets/imgs/Adult_Homem1.png",
-    },
+  adultM =[ {
+    title: "Imagem 16",
+    description: "",
+    id: 1,
+    imc:12.5,
+    image: "assets/imgs/Adult_Homem1.png",
+  },
     {
       title: "Imagem 17",
       description: "",
@@ -420,24 +421,21 @@ export class AvaliacaoPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public modalCrtl : ModalController,
-              private alert : AlertController) {
-
-    this.instructions();
+              public modalCrtl : ModalController) {
 
     this.naoprimeiro;
-
     this.showSlides();
-
   }
 
   ionViewDidLoad() {
-
-    console.log('genero:' +' ' + this.genero);
+    console.log('genero:' + ' ' + this.genero);
     console.log('idade:' + ' ' + this.idade);
     console.log('peso:' + ' ' + this.peso);
     console.log('altura:' + ' ' + this.altura);
     console.log('imc real:' + ' ' + this.imcReal);
+    this.selecionado.push(this.avaliacao2);
+    this.imcAtual.push(this.navParams.get('imcAtual'));
+    console.log(this.selecionado)
   }
 
   showSlides() {
@@ -463,8 +461,8 @@ export class AvaliacaoPage {
     this.slider.slideNext();
     if(this.slider.valueOf().isEnd()) {
       this.slidePrev();
-          }
-          this.naoprimeiro = true
+    }
+    this.naoprimeiro = true
   }
 
   slidePrev(){
@@ -480,41 +478,23 @@ export class AvaliacaoPage {
   addSlides(slide) { //Método para adiconar o slide a lista de selecionado
     if (this.selecionado.indexOf(slide) === -1) {
       this.selecionado.push(slide.id,slide.imc);
-      // this.selecionado.push(slide.id);
+      this.selecionado.push(slide.id);
       console.log('selecionado');
-      console.log('tamanha array'+' '+this.selecionado.length);
       console.log(this.selecionado);
-      console.log('tamanha array'+' '+this.selecionado.length);
-
-      this.imcAtual.push(slide.imc);
-      console.log('imc Atual'+' '+this.imcAtual);
+      this.imcIdeal = this.selecionado.push(slide.imc);
 
     }
-    this.callAv2()
+    this.callAv4()
   }
 
-  callAv2(){
-    let av2 = this.modalCrtl.create(Avaliacao2Page,{avaliacao:this.selecionado,
+  callAv4(){
+    let av2 = this.modalCrtl.create(Avaliacao4Page,{avaliacao3:this.selecionado,
       paciente:this.navParams.get('paciente'),
       imcReal:this.imcReal,
-      imcAtual:this.imcAtual});
-
+      imcAtual:this.imcAtual,
+      imcDesejado:this.imcDesejado,
+      imcIdeal:this.imcIdeal});
     av2.present();
-
-  }
-
-  instructions(){
-    let instrucao = this.alert.create({
-      title:'Tutorial',
-      subTitle:'Breve tutorial com uma explicação do funcionamento da avaliação',
-      buttons:[{
-        text:'ok',
-        handler:()=>{
-          console.log('ok');
-        }
-      }]
-    });
-    instrucao.present();
   }
 
 }
