@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="secondary">
+  	<ion-title style="text-align: center">
+  		GepetsDev
+  	</ion-title>
+  	<ion-buttons end>
+  		<button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+  	</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngIf="qtdPacientes" style="text-align: center" class="alert-message" >Não ha pacientes cadastrados</ion-item>
+  <ion-list>
+
+    <ion-item *ngFor="let item of items" (click)="viewItem(item)">
+      <ion-checkbox color="secondary" [(ngModel)]="checkDownload" *ngIf="downloadall"> </ion-checkbox>
+    <ion-avatar item-start >
+      <img src="assets/imgs/p</ion-checkbox>cienteM">
+
+        </ion-avatar>
+        <strong>{{item.nome}}</strong>
+
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button full color="secondary" (click)="downloadAll()">download</button>
+  <button ion-button full color="secondary"class="action-sheet-cancel" *ngIf="downloadall" (click)="canceldownloadAll()">cancelar</button>
+</ion-content>
